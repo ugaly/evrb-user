@@ -30,8 +30,8 @@ function Login(props) {
   const [error, setError] = useState(null);
   const [activeTabId, setActiveTabId] = useState(0);
   const [registrationNumber, setRegistrationNumber] = useState("");
-  const [loginValue, setLoginValue] = useState("VRB/FRV/005/2019");
-  const [passwordValue, setPasswordValue] = useState("12345678");
+  const [loginValue, setLoginValue] = useState("");
+  const [passwordValue, setPasswordValue] = useState("");
   const [repeatPasswordValue, setRepeatPasswordValue] = useState("");
   const [hasRegistrationNumber, setHasRegistrationNumber] = useState("no");
   const [registrationType, setRegistrationType] = useState("");
@@ -90,8 +90,7 @@ function Login(props) {
 
     AuthService.login(data)
       .then((res) => {
-
-        console.log(res.data);
+        //console.log(res.data);
         if (res.data.success) {
 
           sessionStorage.setItem("token", res.data.token);

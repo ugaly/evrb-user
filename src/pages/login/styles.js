@@ -13,8 +13,10 @@ export default makeStyles(theme => ({
   },
   logotypeContainer: {
     backgroundColor: theme.palette.primary.main,
-    width: "60%",
+    width: "50%",
     height: "100%",
+    background: 'radial-gradient(circle, rgba(255,255,255,0.2) 1px, transparent 1px)',
+            backgroundSize: '10px 10px',
     display: "flex",
     flexDirection: "column",
     justifyContent: "center",
@@ -39,7 +41,7 @@ export default makeStyles(theme => ({
     },
   },
   formContainer: {
-    width: "40%",
+    width: "50%",
     height: "100%",
     display: "flex",
     flexDirection: "column",

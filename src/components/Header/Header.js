@@ -181,12 +181,12 @@ export default function Header(props) {
           }}
           className={classes.headerMenuButton}
         >
-          <Badge
+          {/* <Badge
             badgeContent={isNotificationsUnread ? notifications.length : null}
             color="warning"
           >
             <NotificationsIcon classes={{ root: classes.headerIcon }} />
-          </Badge>
+          </Badge> */}
         </IconButton>
         <IconButton
           color="inherit"
@@ -198,12 +198,12 @@ export default function Header(props) {
           }}
           className={classes.headerMenuButton}
         >
-          <Badge
+          {/* <Badge
             badgeContent={isMailsUnread ? messages.length : null}
             color="secondary"
           >
             <MailIcon classes={{ root: classes.headerIcon }} />
-          </Badge>
+          </Badge> */}
         </IconButton>
         <IconButton
           aria-haspopup="true"
@@ -298,7 +298,7 @@ export default function Header(props) {
         >
           <div className={classes.profileMenuUser}>
             <Typography variant="h4" weight="medium">
-              User
+              {sessionStorage.getItem("fullname")}
             </Typography>
             {/* <Typography
               className={classes.profileMenuLink}
@@ -309,7 +309,7 @@ export default function Header(props) {
               Flalogic.com
             </Typography> */}
           </div>
-          <MenuItem
+          {/* <MenuItem
             className={classNames(
               classes.profileMenuItem,
               classes.headerMenuItem,
@@ -332,7 +332,7 @@ export default function Header(props) {
             )}
           >
             <AccountIcon className={classes.profileMenuIcon} /> Messages
-          </MenuItem>
+          </MenuItem> */}
           <div className={classes.profileMenuUser}>
             <Typography
               className={classes.profileMenuLink}

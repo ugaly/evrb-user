@@ -16,7 +16,7 @@ import {
 import { useTheme } from "@material-ui/styles";
 import { withRouter } from "react-router-dom";
 import classNames from "classnames";
-import logo from '../../images/logo.png'
+import log from '../../images/logo.png'
 import AuthService from "../../services/auth/auth_service";
 
 // styles
@@ -157,7 +157,7 @@ function Sidebar({ location }) {
     >
       
       <div className={classes.toolbar} />
-      <center><img src={logo} alt="logo" width={'50%'}/></center>
+      <center><img src={log} alt="logo" width={'50%'}/></center>
       {/* <center><span style={{display: isSidebarOpened?'inherit':'hidden'}}>Fareness and Intergrity</span></center> */}
       <hr/>
       <div className={classes.mobileBackButton}>
