@@ -57,9 +57,9 @@ const PieChartData = [
 
 
 export default function Dashboard(props) {
-    console.log('props', props);
-    const root_id = props.location && props.location.state.root_id;
-    console.log('root_id', root_id);
+    //console.log('props', props);
+    //const root_id = props.location && props.location.state.root_id;
+    //console.log('root_id', root_id);
 
     var classes = useStyles();
     var theme = useTheme();
@@ -92,6 +92,8 @@ export default function Dashboard(props) {
     const [errors, setErrors] = useState({});
 
 
+
+
     const fetchData = async () => {
         const response = await AuthService.getRegistrationInfo();
         setRegInfo(response.data);
@@ -117,11 +119,15 @@ export default function Dashboard(props) {
     }
 
     useEffect(() => {
+
+        console.log(sessionStorage.getItem('token'));
+
         setIsLoadingRegInfo(true);
 
         fetchData();
         getCountries();
         getRegion();
+        
     }, []);
 
     const getDistricts = async (region_id) => {
@@ -206,7 +212,7 @@ export default function Dashboard(props) {
                 gender: formData.gender,
                 pox: formData.pobox,
                 districtId: formData.district,
-                subModuleId: root_id, // If this field exists in formData, otherwise add it accordingly
+                //subModuleId: root_id, // If this field exists in formData, otherwise add it accordingly
                 countryId: formData.country,
                 location: formData.location,
                 blockNo: formData.block,

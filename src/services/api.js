@@ -1,6 +1,8 @@
 import axios from "axios";
 
- const base_url = 'http://172.20.10.2:8000/api/v1/'
+ //const base_url = 'http://0.0.0.0:8000/api/v1/'
+ const base_url = 'https://registration.vrb.go.tz:8000/api/v1/'
+
 
 
 export default class API {

@@ -41,6 +41,7 @@ const PracticalExperiencePage = (props) => {
   const [uploadedFile, setUploadedFile] = useState(null);
   const [fileName, setFileName] = useState('');
   const [loadedData, setLoadedData] = useState([]);
+  const [showAdd,setShowAdd] = useState(false);
 
   useEffect(() => {
     loadEducation();
@@ -52,7 +53,22 @@ const PracticalExperiencePage = (props) => {
     AuthService.getPracticalExperience().then(res => {
       console.log('res', res);
       if (res.data.success === true) {
-        setLoadedData(res.data.results);
+        
+        try{
+          let data = res.data.results
+          setLoadedData(data);
+
+          if(data.length>0){
+            setShowAdd(false)
+          }else{
+            setShowAdd(true)
+          }
+        }catch(err){
+          console.log('err', err);
+        }
+
+        
+
       }
     })
   }
@@ -98,7 +114,8 @@ const PracticalExperiencePage = (props) => {
       console.log('response', response);
       if (response.data.message === 'saved') {
         // Handle success response
-        alert("Education info saved successfully");
+        alert("Saved successfully");
+        setShowAdd(false)
         loadExperience();
         setCapacity('');
         setNatureOfValuation('');
@@ -200,7 +217,12 @@ const PracticalExperiencePage = (props) => {
               </Card>
             </Grid>
           </Grid>
-          <Card>
+
+          <Button  variant="contained" style={{display: !showAdd ? 'block' : 'none',float:'right'}} onClick={()=>{
+                        setShowAdd(true);
+                    }}>Add New</Button>
+
+          <Card style={{display: showAdd ? 'block' : 'none'}}>
             <CardHeader title="Fill Practical experience and training" />
             <CardContent>
               <form>

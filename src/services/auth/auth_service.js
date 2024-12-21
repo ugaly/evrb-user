@@ -1,9 +1,14 @@
 import API from "../api";
+import APINo from "../api_noauth";
 
 
 export default class AuthService {
     static login(payload) {
-        return API.ax.post('auth/login', payload).catch(e => console.log(e))
+        return APINo.axNo.post('auth/login', payload).catch(e => console.log(e))
+    }
+
+    static activate(payload) {
+        return APINo.axNo.post('auth/activate', payload).catch(e => console.log(e))
     }
 
     static createToken(data){

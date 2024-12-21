@@ -1,41 +1,43 @@
 import React, { useState, useEffect } from 'react';
 import {
-    Box, Breadcrumbs, Button, Card, CardContent, CardHeader, FormControl, FormLabel, Grid, MenuItem, Select, Step, StepLabel, Stepper, TextField, Typography,
+    Box, Button, Card, Grid, Step, StepLabel, Stepper, 
     TableBody,
     TableCell,
     TableContainer,
     Table,
-    TableHead,
     TableRow,
-    Paper,
-    Icon
-  } from "@mui/material";
+    Paper  } from "@mui/material";
   import Widget from "../../components/Widget";
-import NavigateNextIcon from '@mui/icons-material/NavigateNext';
 import AuthService from '../../services/auth/auth_service';
 
 const Payment = (props) => {
-  const root_id = props.location && props.location.state.root_id;
+    //const root_id = props.location && props.location.state.root_id;
     const [activeStep, setActiveStep] = useState(6);
     const [payments, setPayments] = useState({});
 
-    const handleNext = () => {
-        setActiveStep((prevActiveStep) => prevActiveStep + 1);
-    };
+    // const handleNext = () => {
+    //     setActiveStep((prevActiveStep) => prevActiveStep + 1);
+    // };
 
     const loadPayments = () => {
-        // Load payments data from server
+        try{
+          AuthService.getPaymentInfo().then((response) => {
+            
+            try{
+              console.log(response.data);
+              setPayments(response.data);
+            }catch(e){
+              console.log(e);
+            }
+          })
+        }catch(e){
+          console.log(e);
+        }
     }
 
     useEffect(() => {
-      const getPayments = () => {
-        AuthService.getPaymentInfo().then((response) => {
-          console.log(response.data);
-          setPayments(response.data);
-        })
-      }
-
-      getPayments();
+      loadPayments();
+      
     }, []);
 
     return (

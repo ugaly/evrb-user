@@ -7,10 +7,10 @@ import Layout from "./Layout";
 // pages
 import Error from "../pages/error";
 import Login from "../pages/login";
-import Landing from "../landing";
 
 // context
 import { useUserState } from "../context/UserContext";
+import SetPassword from "../pages/login/SetPassword";
 
 export default function App() {
   // global
@@ -21,15 +21,16 @@ export default function App() {
       <Switch>
       {/* <Route  path="/registration/:type" Component={App}/> */}
 
-        <Route exact path="/dashboard" render={() => <Redirect to="/app/dashboard" />} />
+        <Route exact path="/application_informantion" render={() => <Redirect to="/app/application_informantion" />} />
         <Route
           exact
           path="/app"
-          render={() => <Redirect to="/app/dashboard" />}
+          render={() => <Redirect to="/app/application_informantion" />}
         />
         <PrivateRoute path="/app" component={Layout} />
-        <Route path="/" exact render={() => <Redirect to="/provision-registration" />} />
-        <PublicRoute path="/provision-registration" component={Login} />
+        <Route path="/" exact render={() => <Redirect to="/evrb" />} />
+        <PublicRoute path="/evrb" component={Login} />
+        <PublicRoute path="/set-password" component={SetPassword} />
         {/* <Route path="/" component={Landing} /> */}
         <Route component={Error} />
       </Switch>
@@ -68,7 +69,7 @@ export default function App() {
           isAuthenticated ? (
             <Redirect
               to={{
-                pathname: "/dashboard",
+                pathname: "/application_informantion",
               }}
             />
           ) : (

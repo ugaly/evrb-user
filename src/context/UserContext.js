@@ -54,14 +54,19 @@ function loginUser(dispatch, login, password, history, setIsLoading, setError) {
   setIsLoading(true);
 
   if (!!login && !!password) {
+
     setTimeout(() => {
       sessionStorage.setItem('id_token', 1)
       setError(null)
       setIsLoading(false)
       window.location.reload();
+
+      console.log(sessionStorage.getItem('token'))
+
       dispatch({ type: 'LOGIN_SUCCESS' })
 
-      history.push('/app/dashboard')
+      history.push('/app/application_informantion')
+
     }, 2000);
   } else {
     dispatch({ type: "LOGIN_FAILURE" });

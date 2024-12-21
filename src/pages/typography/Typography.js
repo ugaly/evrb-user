@@ -34,6 +34,7 @@ const TypographyPage = (props) => {
     const [registrationNo, setRegistrationNo] = useState('');
     const [fileName, setFileName] = useState('');
     const [error, setError] = useState('');
+    const [showAdd,setShowAdd] = useState(false);
 
     useEffect(() => {
         loadCountries();
@@ -41,7 +42,7 @@ const TypographyPage = (props) => {
     }, []);
 
     const submit = async () => {
-        console.log('sssssssssssss',level, school, from, to, award, countryId, root_id, registrationNo, uploadedFile);
+        
         if (level === '' || school === '' || from === '' || to === '' || award === '' || registrationNo === '' || countryId === '' || root_id === '' || uploadedFile === null) {
             setError("All fields are required and file must be uploaded");
             return;
@@ -66,8 +67,10 @@ const TypographyPage = (props) => {
 
         try {
             const response = await AuthService.createEdoction(formData);
-            console.log('response', response);
+            
             if (response.data.success === true) {
+                alert("Education info submitted successfully");
+                setShowAdd(false);
                 getAcademicResultsInfo();
                 setLevel('');
                 setSchool('');
@@ -182,9 +185,20 @@ const TypographyPage = (props) => {
     const { getRootProps, getInputProps } = useDropzone({ onDrop: handleFileUpload });
 
     const getAcademicResultsInfo = () => {
+        
         AuthService.getAcademicResultsInfo().then(res => {
             console.log('res', res.data);
-            setEducationInfo(res.data.content);
+            try{
+                let data = res.data.content;
+                setEducationInfo(data);
+                if(data.length>0){
+                    setShowAdd(false)
+                }else{
+                    setShowAdd(true)
+                }
+            }catch(err){
+                console.log(err);
+            }
         });
     };
 
@@ -235,7 +249,12 @@ const TypographyPage = (props) => {
                             </Card>
                         </Grid>
                     </Grid>
-                    <Card>
+                    
+                    <Button  variant="contained" style={{display: !showAdd ? 'block' : 'none',float:'right'}} onClick={()=>{
+                        setShowAdd(true);
+                    }}>Add New</Button>
+
+                    <Card style={{display: showAdd ? 'block' : 'none'}}>
                         <CardHeader title="Fill Education Background" />
                         <CardContent>
                             <form>

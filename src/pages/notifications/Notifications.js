@@ -20,6 +20,7 @@ const NotificationsPage = (props) => {
   const [referee1, setReferee1] = useState('');
   const [referee2, setReferee2] = useState('');
   const [referees, setReferees] = useState([]);
+  const [showAdd,setShowAdd] = useState(false);
 
 
   
@@ -57,7 +58,10 @@ const NotificationsPage = (props) => {
     AuthService.createReferee(data).then((response) => {
       console.log(response);
       if (response.data.message === 'saved') {
-        
+        alert('Referee created successfully');
+        setReferee1('')
+        setReferee2('')
+        setShowAdd(false)
       }
     })
   };
@@ -109,7 +113,12 @@ const NotificationsPage = (props) => {
               </Card>
             </Grid>
           </Grid>
-          <Card>
+
+          <Button  variant="contained" style={{display: !showAdd ? 'block' : 'none',float:'right'}} onClick={()=>{
+                        setShowAdd(true);
+                    }}>Add New</Button>
+
+          <Card style={{display: showAdd ? 'block' : 'none'}}>
             <CardHeader title="Fill Referees Info Below" />
             <CardContent>
               <form>
