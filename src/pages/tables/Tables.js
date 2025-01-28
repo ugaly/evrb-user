@@ -121,7 +121,7 @@ return (
               </Grid>
               <Box mt={2}>
                 <Button variant="contained" color="primary" type="submit">Submit</Button>
-                <Button variant="contained" onClick={handleNext} style={{ marginLeft: '10px' }} color="primary">Next</Button>
+                {/* <Button variant="contained" onClick={handleNext} style={{ marginLeft: '10px' }} color="primary">Next</Button> */}
               </Box>
             </form>
           </CardContent>

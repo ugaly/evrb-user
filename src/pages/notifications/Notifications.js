@@ -134,7 +134,7 @@ const NotificationsPage = (props) => {
                 </Grid>
                 <Box mt={2}>
                 <Button variant="contained" onClick={submit} color="primary">Submit</Button>
-                  <Button variant="contained" onClick={handleNext} style={{ marginLeft: '10px' }} color="primary">Next</Button>
+                  {/* <Button variant="contained" onClick={handleNext} style={{ marginLeft: '10px' }} color="primary">Next</Button> */}
                 </Box>
               </form>
             </CardContent>

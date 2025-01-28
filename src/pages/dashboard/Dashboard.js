@@ -520,9 +520,9 @@ export default function Dashboard(props) {
                                                             Save
                                                         </Button>
 
-                                                        <Button variant="contained" onClick={handleNext} style={{ marginLeft: '10px' }} color="primary">
+                                                        {/* <Button variant="contained" onClick={handleNext} style={{ marginLeft: '10px' }} color="primary">
                                                             Next
-                                                        </Button>
+                                                        </Button> */}
                                                     </Box>
                                                 </Box>
                                             </form>

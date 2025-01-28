@@ -324,7 +324,7 @@ const TypographyPage = (props) => {
                                 </Grid>
                                 <Box mt={2}>
                                     <Button variant="contained" onClick={submit} color="primary">Submit</Button>
-                                    <Button variant="contained" onClick={handleNext} style={{ marginLeft: '10px' }} color="primary">Next</Button>
+                                    {/* <Button variant="contained" onClick={handleNext} style={{ marginLeft: '10px' }} color="primary">Next</Button> */}
                                 </Box>
                             </form>
                         </CardContent>
@@ -342,6 +342,7 @@ const TypographyPage = (props) => {
                                         <TableCell>Year of Registration</TableCell>
                                         <TableCell>Year of Graduation</TableCell>
                                         <TableCell>Award</TableCell>
+                                        <TableCell>Action</TableCell>
                                     </TableRow>
                                 </TableHead>
                                 <TableBody>
@@ -353,6 +354,9 @@ const TypographyPage = (props) => {
                                             <TableCell>{education.yearOfGraduation}</TableCell>
                                             <TableCell>{education.yearOfRegistration}</TableCell>
                                             <TableCell>{education.award}</TableCell>
+                                            <TableCell>
+                                                Edit
+                                            </TableCell>
                                         </TableRow>
                                     )) : (
                                         <TableRow>
