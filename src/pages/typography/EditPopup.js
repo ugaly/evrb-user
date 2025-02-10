@@ -29,6 +29,7 @@ const EditPopup = ({ open, onClose, education, onSubmit }) => {
 
     AuthService.upgateAcademicInfo(editedEducation).then(res => {
       console.log(res)
+      alert("Updated successfully")
       onSubmit(editedEducation)
 
     }).catch(e => console.log(e))
