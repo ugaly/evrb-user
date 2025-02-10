@@ -1,12 +1,15 @@
 import React, { useState, useEffect } from "react"
 import { Dialog, DialogTitle, DialogContent, DialogActions, Button, TextField, MenuItem } from "@mui/material"
+import AuthService from "../../services/auth/auth_service"
 
 const EditPopup = ({ open, onClose, education, onSubmit }) => {
   const [editedEducation, setEditedEducation] = useState(education || {})
+  console.log(education)
 
   useEffect(() => {
     if (education) {
       setEditedEducation({
+        id: education.id || "",
         levelName: education.levelName || "",
         institution: education.institution || "",
         yearOfRegistration: education.yearOfRegistration || "",
@@ -23,7 +26,12 @@ const EditPopup = ({ open, onClose, education, onSubmit }) => {
   }
 
   const handleSubmit = () => {
-    onSubmit(editedEducation)
+
+    AuthService.upgateAcademicInfo(editedEducation).then(res => {
+      console.log(res)
+      onSubmit(editedEducation)
+
+    }).catch(e => console.log(e))
   }
 
   const handleClose = () => {

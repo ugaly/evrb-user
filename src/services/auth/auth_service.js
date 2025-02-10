@@ -95,6 +95,11 @@ export default class AuthService {
     }
 
 
+    static upgateAcademicInfo(data){
+        return API.ax.put(`registration/update/academic-info`, data).catch(e => console.log(e))
+    }
+
+
 
 
 
