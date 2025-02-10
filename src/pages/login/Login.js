@@ -145,8 +145,9 @@ function Login(props) {
     <Grid container className={classes.container}>
       <div className={classes.logotypeContainer} style={{ backgroundColor: "#cba135" }}>
         <img src={logo} alt="logo" className={classes.logotypeImage} />
-        <Typography style={{ color: "white",fontWeight:"bold",fontSize:'24px' }}>VALUERS REGISTRATION BOARD</Typography>
         <Typography style={{ color: "white" }}>Integrity and Fairness</Typography>
+        <Typography style={{ color: "white",fontWeight:"bold",fontSize:'24px' }}>VALUERS REGISTRATION BOARD</Typography>
+       
       </div>
       <div className={classes.formContainer}>
         <div className={classes.form}>
