@@ -52,6 +52,7 @@ const Tables = (props) => {
     };
 
     AuthService.createMembership(data).then((response) => {
+      alert("Membership created successfully");
       console.log(response);
       if (response.data.message === 'saved') {
         handleNext();

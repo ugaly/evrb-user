@@ -269,13 +269,13 @@ const TypographyPage = (props) => {
                       fullWidth
                     >
                       <MenuItem value="">- Choose One -</MenuItem>
-                      <MenuItem value="primary">Primary School</MenuItem>
-                      <MenuItem value="o-level">O Level</MenuItem>
-                      <MenuItem value="a-level">A Level</MenuItem>
-                      <MenuItem value="certificate">Certificate</MenuItem>
-                      <MenuItem value="diploma">Diploma</MenuItem>
-                      <MenuItem value="degree">Degree</MenuItem>
-                      <MenuItem value="masters">Masters</MenuItem>
+                      <MenuItem value="primary">PRIMARY SCHOOL</MenuItem>
+                      <MenuItem value="o-level">O LEVEL</MenuItem>
+                      <MenuItem value="a-level">A LEVEL</MenuItem>
+                      <MenuItem value="certificate">CERTIFICATE</MenuItem>
+                      <MenuItem value="diploma">DIPLOMA</MenuItem>
+                      <MenuItem value="degree">DEGREE</MenuItem>
+                      <MenuItem value="masters">MASTERS</MenuItem>
                       <MenuItem value="phd">PHD</MenuItem>
                     </TextField>
                   </Grid>
