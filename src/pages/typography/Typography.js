@@ -83,52 +83,62 @@ const TypographyPage = (props) => {
     getAcademicResultsInfo()
   }, [])
 
+
+
   const submit = async () => {
-    if (
-      level === "" ||
-      school === "" ||
-      from === "" ||
-      to === "" ||
-      award === "" ||
-      registrationNo === "" ||
-      countryId === "" ||
-      root_id === "" ||
-      uploadedFile === null
-    ) {
-        console.log("level:", level, "school:", school, "from:", from, "to:", to, "award:", award, "registrationNo:", registrationNo, "countryId:", countryId, "root_id:", root_id, "uploadedFile:", uploadedFile)
-        console.log("All fields are required and file must be uploaded");
-      setError("All fields are required and file must be uploaded")
-      return
+        
+    if (level === '' || school === '' || from === '' || to === '' || award === '' || registrationNo === '' || countryId === '' || root_id === '' || uploadedFile === null) {
+        setError("All fields are required and file must be uploaded");
+        return;
     }
 
-    const formData = {
-      levelName: level,
-      institution: school,
-      yearOfRegistration: from,
-      yearOfGraduation: to,
-      countryId: countryId,
-      award: award,
-      registrationNo: registrationNo,
-      subModuleId: root_id,
-      file: uploadedFile,
+    const formData = new FormData();
+    formData.append('file', uploadedFile);
+    
+        const extraData = {
+            levelName: level,
+            institution: school,
+            yearOfRegistration: from,
+            yearOfGraduation: to,
+            countryId: countryId,
+            award: award,
+            registrationNo: registrationNo,
+            subModuleId: root_id
+    };
+
+    formData.append('extra', JSON.stringify(extraData));
+
+
+    try {
+        const response = await AuthService.createEdoction(formData);
+        
+        if (response.data.success === true) {
+            alert("Education info submitted successfully");
+            setShowAdd(false);
+            getAcademicResultsInfo();
+            setLevel('');
+            setSchool('');
+            setFrom('');
+            setTo('');
+            setAward('');
+            setCountryId('');
+            setRegistrationNo('');
+            setUploadedFile(null);
+            setFileName('');
+            setError(null); // Clear error if any
+            window.location.reload();
+        } else {
+            setError("Failed to save education info");
+        }
+    } catch (err) {
+        console.error("Failed to submit education info", err);
+        setError("Failed to submit education info");
     }
+};
 
-    console.log("Form submitted with data:", formData)
-    console.log("Fill Education Background submitted:", formData)
 
-    // Clear form
-    setLevel("")
-    setSchool("")
-    setFrom("")
-    setTo("")
-    setAward("")
-    setCountryId("")
-    setRegistrationNo("")
-    setUploadedFile(null)
-    setFileName("")
-    setError(null)
-    setShowAdd(false)
-  }
+
+
 
   const handleFileUpload = (acceptedFiles) => {
     const file = acceptedFiles[0]
