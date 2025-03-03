@@ -38,6 +38,8 @@ import TemporaryRegistration from "../../pages/TemporaryRegistration/TemporaryRe
 
 // context
 import { useLayoutState } from "../../context/LayoutContext";
+import DownloadPdf from "../../pages/DownloadPDF/DownloadPdf";
+import DigitalSeal from "../../pages/DigitalSeal/DigitalSeal";
 
 function Layout(props) {
   var classes = useStyles();
@@ -63,6 +65,9 @@ function Layout(props) {
               <Route path="/app/referees" component={Notifications} />
               <Route path="/app/practical" component={PracticalExperiencePage} />
               <Route path="/app/payments" component={Payment} />
+              <Route path="/app/download-pdf" component={DownloadPdf} />
+              <Route path="/app/digital-seal" component={DigitalSeal} />
+
               <Route path="/app/nature" component={NatureDuration} />
               <Route path="/app/temporary" component={TemporaryRegistration} />
               <Route

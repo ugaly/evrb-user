@@ -76,6 +76,13 @@ export default class AuthService {
         return API.ax.get(`registration/read/referees`).catch(e => console.log(e))
     }
 
+    static getPdf(){
+        return API.ax.get(`registration/read`).catch(e => console.log(e))
+    }
+
+
+    
+
 
 
 
