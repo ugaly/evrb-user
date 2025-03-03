@@ -77,7 +77,7 @@ export default class AuthService {
     }
 
     static getPdf(){
-        return API.ax.get(`registration/read`).catch(e => console.log(e))
+        return API.ax.get(`registration/read/pdf`).catch(e => console.log(e))
     }
 
 
