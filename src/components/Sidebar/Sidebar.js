@@ -251,12 +251,12 @@ function Sidebar({ location }) {
         icon: < DownloadIcon style={{ color: 'blue' }} />
       });
 
-      mappedStructure.push({
-        id: mappedStructure.length,
-        label: "Digital Seal",
-        link: "/app/digital-seal",
-        icon: <QrCodeIcon style={{ color: 'blue' }} />
-      });
+      // mappedStructure.push({
+      //   id: mappedStructure.length,
+      //   label: "Digital Seal",
+      //   link: "/app/digital-seal",
+      //   icon: <QrCodeIcon style={{ color: 'blue' }} />
+      // });
 
       setStructure(mappedStructure);
     }).catch(error => {
